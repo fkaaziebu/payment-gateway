@@ -13,10 +13,12 @@ export default class PaymentGateway {
 
   pay() {
     try {
-      const paymentResults = new Services[this.paymentService](
+      const paymentServiceObject = new Services[this.paymentService](
         this.userInfo,
         this.amountToPay
       );
+
+      paymentServiceObject.pay()
 
       return {
         message: "Payment Successfull",
@@ -26,7 +28,7 @@ export default class PaymentGateway {
     } catch (error) {
       const timeOfError = new Date();
       return {
-        message: error.msg,
+        message: error.message,
         timestamp: new Date().getTime(),
         status: 400,
       };
