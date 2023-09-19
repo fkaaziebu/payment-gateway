@@ -29,7 +29,7 @@ it("returns 'Payment Successfull' when when payment successfull", () => {
 it("returns 401 when userInfo provided is invalid", () => {
   const response = paymentAPI({ ...paymentDetails, userInfo: "" });
 
-  return expect(response.status).toBe(400);
+  return expect(response.status).toBe(401);
 });
 
 it("returns 'Authentication Error' when userInfo provided is invalid", () => {

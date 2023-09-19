@@ -30,7 +30,7 @@ export default class PaymentGateway {
       return {
         message: error.message,
         timestamp: new Date().getTime(),
-        status: 400,
+        status: 401,
       };
     }
   }
